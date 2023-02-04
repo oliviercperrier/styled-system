@@ -1,10 +1,10 @@
 import { FlexStyle } from "react-native";
-import { Sizes } from "../config/theme/spacing";
 import {
+  Sizes,
   TAliasedSpacing,
   TAliasedFlexboxProps,
   TSizes,
-} from "../config/theme/types";
+} from "../config/theme";
 
 export const parseAliasedFlexStyles = (
   aliasedFlexStyle: TAliasedFlexboxProps

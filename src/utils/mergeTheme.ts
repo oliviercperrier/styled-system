@@ -1,4 +1,4 @@
-import { TDefaultTheme } from "../config/theme/types/base";
+import { TDefaultTheme } from "../config/theme";
 import { isFunction } from "./helper";
 
 type ThemeFn = (baseTheme?: TDefaultTheme) => TDefaultTheme;

@@ -1,7 +1,6 @@
 import React, { PropsWithChildren, useMemo, useContext } from "react";
 import mergeTheme from "../utils/mergeTheme";
-import { DefaultTheme } from "./theme";
-import { TDefaultTheme } from "./theme/types/base";
+import { DefaultTheme, TDefaultTheme } from "./theme";
 
 export interface ConfigContextProps {
   theme: TDefaultTheme;

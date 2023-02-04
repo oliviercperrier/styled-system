@@ -1,5 +1,5 @@
 import color from "color";
-import { TColorTheme } from "./types/color";
+import { TColorTheme } from "./types";
 
 const ref = {
   black: "#000000",
