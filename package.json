@@ -1,12 +1,17 @@
 {
   "name": "@oliviercperrier/styled-system",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Styling system for react-native",
   "types": "native/dist/index.d.ts",
-  "main": "native/dist/styled-components.native.cjs.js",
-  "module": "./native/dist/styled-components.native.cjs.js",
-  "react-native": "native/dist/styled-components.native.cjs.js",
+  "main": "native/dist/styled-system.native.cjs.js",
+  "module": "./native/dist/styled-system.native.cjs.js",
+  "react-native": "native/dist/styled-system.native.cjs.js",
+  "browser": {
+    "./dist/styled-system.esm.js": "./dist/styled-system.browser.esm.js",
+    "./dist/styled-system.cjs.js": "./dist/styled-system.browser.cjs.js"
+  },
   "publishConfig": {
+    "deploy": "npm run build &&  && npm publish",
     "registry": "https://npm.pkg.github.com/oliviercperrier/styled-system"
   },
   "repository": {
@@ -31,7 +36,7 @@
   "license": "ISC",
   "peerDependencies": {
     "color": ">=4.2.3",
-    "react": ">= 16.8.0",
+    "react": ">= 18.0.0",
     "react-native": ">=0.70.5"
   },
   "devDependencies": {
@@ -46,5 +51,8 @@
   },
   "engines": {
     "node": ">= 16"
+  },
+  "dependencies": {
+    "@oliviercperrier/styled-system": "^1.0.0"
   }
 }

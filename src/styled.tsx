@@ -10,14 +10,31 @@ import {
   ViewProps,
   ViewStyle,
 } from "react-native";
+import { TAliasedFlexboxProps } from "./config";
 import { parseAliasedStyle } from "./utils";
 
-const styledComponent = <T, ComponentProps, ComponentStyleProps>(Component: any) => {
-  return (props: T & ComponentProps & ComponentStyleProps & StyleProp<ComponentStyleProps>) => {
-    const baseStyle = props as Pick<ComponentStyleProps, keyof ComponentStyleProps>;
+const styledComponent = <T, ComponentProps, ComponentStyleProps>(
+  Component: any
+) => {
+  return (
+    props: T &
+      ComponentProps &
+      ComponentStyleProps &
+      StyleProp<ComponentStyleProps> &
+      TAliasedFlexboxProps
+  ) => {
+    const baseStyle = props as Pick<
+      ComponentStyleProps,
+      keyof ComponentStyleProps
+    >;
     const aliasedStyle = props as Pick<T, keyof T>;
 
-    return <Component style={[props, baseStyle, parseAliasedStyle(aliasedStyle)]} />;
+    return (
+      <Component
+        {...(props as any)}
+        style={[props, baseStyle, parseAliasedStyle(aliasedStyle)]}
+      />
+    );
   };
 };
 
@@ -27,4 +44,4 @@ const styled = {
   Pressable: <T,>() => styledComponent<T, PressableProps, ViewStyle>(Pressable),
 };
 
-export default styled
+export default styled;

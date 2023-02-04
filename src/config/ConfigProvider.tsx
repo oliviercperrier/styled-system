@@ -23,9 +23,14 @@ export const useConfig = () => useContext(ConfigContext);
 
 export const useTheme = () => useConfig().theme;
 
-const ConfigProvider = ({ theme, ...props }: PropsWithChildren<ConfigProviderProps>): JSX.Element | null => {
-  const outerTheme = useTheme();
-  const mergedTheme = useMemo(() => mergeTheme(theme, outerTheme), [theme, outerTheme]);
+const ConfigProvider = ({
+  theme = DefaultTheme,
+  ...props
+}: PropsWithChildren<ConfigProviderProps>): JSX.Element | null => {
+  const mergedTheme = useMemo(
+    () => mergeTheme(theme, DefaultTheme),
+    [theme, DefaultTheme]
+  );
 
   const memoedContext = useMemo<ConfigContextProps>(
     () => ({
@@ -39,7 +44,11 @@ const ConfigProvider = ({ theme, ...props }: PropsWithChildren<ConfigProviderPro
     return null;
   }
 
-  return <ConfigContext.Provider value={memoedContext}>{props.children}</ConfigContext.Provider>;
+  return (
+    <ConfigContext.Provider value={memoedContext}>
+      {props.children}
+    </ConfigContext.Provider>
+  );
 };
 
 export default ConfigProvider;

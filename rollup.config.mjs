@@ -73,6 +73,20 @@ const configBase = {
   plugins: commonPlugins,
 };
 
+const browserConfig = {
+  ...configBase,
+  output: [
+    getESM({ file: 'dist/styled-system.browser.esm.js' }),
+    getCJS({ file: 'dist/styled-system.browser.cjs.js' }),
+  ],
+  plugins: configBase.plugins.concat(
+    replace({
+      __SERVER__: JSON.stringify(false),
+      preventAssignment: true
+    })
+  ),
+};
+
 const nativeConfig = {
   ...configBase,
   output: [
@@ -85,4 +99,4 @@ const nativeConfig = {
   ],
 };
 
-export default [nativeConfig];
+export default [nativeConfig, browserConfig];
