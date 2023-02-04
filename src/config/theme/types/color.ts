@@ -21,38 +21,40 @@ export type TColorScheme = {
 };
 
 export type TColorTheme = {
-  common: {
-    black: string;
-    white: string;
-  };
+  palette: {
+    common: {
+      black: string;
+      white: string;
+    };
 
-  text: {
-    primary: string;
-    secondary: string;
-    disabled: string;
-  };
+    text: {
+      primary: string;
+      secondary: string;
+      disabled: string;
+    };
 
-  primary: TColorProps;
-  secondary: TColorProps;
-  error: TColorProps;
-  warning: TColorProps;
-  info: TColorProps;
-  success: TColorProps;
-  water: TColorProps;
-  brown: TColorProps;
-  purple: TColorProps;
-  grey: TColorScheme;
+    primary: TColorProps;
+    secondary: TColorProps;
+    error: TColorProps;
+    warning: TColorProps;
+    info: TColorProps;
+    success: TColorProps;
+    water: TColorProps;
+    brown: TColorProps;
+    purple: TColorProps;
+    grey: TColorScheme;
 
-  background: {
-    default: string;
-  };
+    background: {
+      default: string;
+    };
 
-  border: {
-    default: string;
-  };
+    border: {
+      default: string;
+    };
 
-  action: {
-    hover: (color: string) => string;
-    press: (color: string) => string;
+    action: {
+      hover: (color: string) => string;
+      press: (color: string) => string;
+    };
   };
 };

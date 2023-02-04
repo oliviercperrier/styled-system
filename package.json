@@ -1,6 +1,6 @@
 {
   "name": "@oliviercperrier/styled-system",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Styling system for react-native",
   "types": "native/dist/index.d.ts",
   "main": "native/dist/styled-system.native.cjs.js",
@@ -29,7 +29,6 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "deploy": "npm run build &&  && npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
