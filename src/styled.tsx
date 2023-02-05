@@ -22,7 +22,7 @@ const styledComponent = <T, ComponentType, ComponentProps, ComponentStyleProps>(
       ComponentStyleProps &
       StyleProp<ComponentStyleProps> &
       TExtendedFlexboxProps & {
-        ref: React.Ref<ComponentType>;
+        ref?: React.Ref<ComponentType>;
       }
   ) => {
     const baseStyle = props as Pick<
