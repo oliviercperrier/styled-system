@@ -1,6 +1,6 @@
 {
   "name": "@oliviercperrier/styled-system",
-  "version": "1.0.14",
+  "version": "1.0.18",
   "description": "Styling system for react-native",
   "types": "native/dist/index.d.ts",
   "main": "native/dist/styled-system.native.cjs.js",

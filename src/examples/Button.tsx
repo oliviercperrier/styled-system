@@ -5,7 +5,7 @@ const Pressable = styled.Pressable<TExtendedFlexboxProps>();
 
 export const App = () => {
   return (
-    <Pressable p="md">
+    <Pressable p="md" style={(state) => []}>
       Hello
     </Pressable>
   );

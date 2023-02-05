@@ -1,4 +1,4 @@
-import { FlexStyle } from "react-native/types";
+import { FlexStyle } from "react-native";
 
 export type TSizes = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 
