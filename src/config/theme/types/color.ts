@@ -60,6 +60,11 @@ export type TColorTheme = {
       default: string;
     };
 
+    surface: {
+      disabled: string;
+      onDisabled: string;
+    }
+
     border: {
       default: string;
     };

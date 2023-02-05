@@ -182,6 +182,11 @@ export const BaseColorTheme: TColorTheme = {
       default: ref.backgroundDefault,
     },
 
+    surface: {
+      disabled: ref.surfaceDisabled,
+      onDisabled: ref.onSurfaceDisabled,
+    },
+
     border: {
       default: ref.borderDefault,
     },
