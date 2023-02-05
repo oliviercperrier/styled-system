@@ -13,6 +13,7 @@ import {
 export const parseExtendedFlexStyles = (
   extendedFlexStyle: TExtendedFlexboxProps
 ): Partial<FlexStyle> => ({
+  width: extendedFlexStyle.fullWidth ? "100%" : undefined,
   // Margins
   margin: getSize(extendedFlexStyle.m),
   marginRight: getSize(extendedFlexStyle.mr),

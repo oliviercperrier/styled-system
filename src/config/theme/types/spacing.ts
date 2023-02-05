@@ -5,6 +5,7 @@ export type TSizes = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 export type TExtendedSpacing = number | TSizes;
 
 export type TExtendedFlexboxProps = {
+  fullWidth?: boolean;
   // Margins
   m?: TExtendedSpacing;
   mx?: TExtendedSpacing;
