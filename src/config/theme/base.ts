@@ -1,10 +1,8 @@
-import {
-  TDefaultTheme,
-  BaseColorTheme,
-  ShapeTheme,
-  SpacingTheme,
-  TypographyTheme,
-} from "../theme";
+import { BaseColorTheme } from "./color";
+import { ShapeTheme } from "./shape";
+import { SpacingTheme } from "./spacing";
+import { TDefaultTheme } from "./types";
+import { TypographyTheme } from "./typography";
 
 const DefaultTheme: TDefaultTheme = {
   ...TypographyTheme,
