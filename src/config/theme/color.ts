@@ -1,5 +1,5 @@
 import color from "color";
-import { TColorTheme } from "./types";
+import { TBaseColors, TColorTheme } from "./types";
 
 const ref = {
   black: "#000000",
@@ -73,6 +73,89 @@ const ref = {
   },
 };
 
+export const BaseColors: TBaseColors = {
+  primary: {
+    main: ref.primary,
+    light: ref.primaryLight,
+    dark: ref.primaryDark,
+    contrastText: ref.white,
+    container: color(ref.primary).alpha(ref.opacity.level2).rgb().toString(),
+    onContainer: ref.primary,
+  },
+
+  secondary: {
+    main: ref.secondary,
+    light: ref.secondaryLight,
+    dark: ref.secondaryDark,
+    contrastText: ref.white,
+    container: color(ref.secondary).alpha(ref.opacity.level2).rgb().toString(),
+    onContainer: ref.secondary,
+  },
+
+  error: {
+    main: ref.error,
+    light: ref.errorLight,
+    dark: ref.errorDark,
+    contrastText: ref.white,
+    container: color(ref.error).alpha(ref.opacity.level2).rgb().toString(),
+    onContainer: ref.error,
+  },
+
+  warning: {
+    main: ref.warning,
+    light: ref.warningLight,
+    dark: ref.warningDark,
+    contrastText: ref.white,
+    container: color(ref.warning).alpha(ref.opacity.level2).rgb().toString(),
+    onContainer: ref.warning,
+  },
+
+  info: {
+    main: ref.info,
+    light: ref.infoLight,
+    dark: ref.infoDark,
+    contrastText: ref.white,
+    container: color(ref.info).alpha(ref.opacity.level2).rgb().toString(),
+    onContainer: ref.info,
+  },
+
+  success: {
+    main: ref.success,
+    light: ref.successLight,
+    dark: ref.successDark,
+    contrastText: ref.white,
+    container: color(ref.success).alpha(ref.opacity.level2).rgb().toString(),
+    onContainer: ref.success,
+  },
+
+  water: {
+    main: ref.water,
+    light: ref.waterLight,
+    dark: ref.waterDark,
+    contrastText: ref.white,
+    container: color(ref.water).alpha(ref.opacity.level2).rgb().toString(),
+    onContainer: ref.water,
+  },
+
+  purple: {
+    main: ref.purple,
+    light: ref.purpleLight,
+    dark: ref.purpleDark,
+    contrastText: ref.white,
+    container: color(ref.purple).alpha(ref.opacity.level2).rgb().toString(),
+    onContainer: ref.purple,
+  },
+
+  brown: {
+    main: ref.brown,
+    light: ref.brownLight,
+    dark: ref.brownDark,
+    contrastText: ref.white,
+    container: color(ref.brown).alpha(ref.opacity.level2).rgb().toString(),
+    onContainer: ref.brown,
+  },
+};
+
 export const BaseColorTheme: TColorTheme = {
   palette: {
     common: {
@@ -80,89 +163,7 @@ export const BaseColorTheme: TColorTheme = {
       white: ref.white,
     },
 
-    primary: {
-      main: ref.primary,
-      light: ref.primaryLight,
-      dark: ref.primaryDark,
-      contrastText: ref.white,
-      container: color(ref.primary).alpha(ref.opacity.level2).rgb().toString(),
-      onContainer: ref.primary,
-    },
-
-    secondary: {
-      main: ref.secondary,
-      light: ref.secondaryLight,
-      dark: ref.secondaryDark,
-      contrastText: ref.white,
-      container: color(ref.secondary)
-        .alpha(ref.opacity.level2)
-        .rgb()
-        .toString(),
-      onContainer: ref.secondary,
-    },
-
-    error: {
-      main: ref.error,
-      light: ref.errorLight,
-      dark: ref.errorDark,
-      contrastText: ref.white,
-      container: color(ref.error).alpha(ref.opacity.level2).rgb().toString(),
-      onContainer: ref.error,
-    },
-
-    warning: {
-      main: ref.warning,
-      light: ref.warningLight,
-      dark: ref.warningDark,
-      contrastText: ref.white,
-      container: color(ref.warning).alpha(ref.opacity.level2).rgb().toString(),
-      onContainer: ref.warning,
-    },
-
-    info: {
-      main: ref.info,
-      light: ref.infoLight,
-      dark: ref.infoDark,
-      contrastText: ref.white,
-      container: color(ref.info).alpha(ref.opacity.level2).rgb().toString(),
-      onContainer: ref.info,
-    },
-
-    success: {
-      main: ref.success,
-      light: ref.successLight,
-      dark: ref.successDark,
-      contrastText: ref.white,
-      container: color(ref.success).alpha(ref.opacity.level2).rgb().toString(),
-      onContainer: ref.success,
-    },
-
-    water: {
-      main: ref.water,
-      light: ref.waterLight,
-      dark: ref.waterDark,
-      contrastText: ref.white,
-      container: color(ref.water).alpha(ref.opacity.level2).rgb().toString(),
-      onContainer: ref.water,
-    },
-
-    purple: {
-      main: ref.purple,
-      light: ref.purpleLight,
-      dark: ref.purpleDark,
-      contrastText: ref.white,
-      container: color(ref.purple).alpha(ref.opacity.level2).rgb().toString(),
-      onContainer: ref.purple,
-    },
-
-    brown: {
-      main: ref.brown,
-      light: ref.brownLight,
-      dark: ref.brownDark,
-      contrastText: ref.white,
-      container: color(ref.brown).alpha(ref.opacity.level2).rgb().toString(),
-      onContainer: ref.brown,
-    },
+    ...BaseColors,
 
     grey: {
       50: ref.grey50,

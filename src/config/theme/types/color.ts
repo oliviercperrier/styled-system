@@ -1,3 +1,8 @@
+export type TExtendedColorProps = {
+  tColor?: TColors;
+  tBgColor?: TColors;
+};
+
 export type TColorProps = {
   main: string;
   light: string;
@@ -6,6 +11,17 @@ export type TColorProps = {
   container: string;
   onContainer: string;
 };
+
+export type TColors =
+  | "primary"
+  | "secondary"
+  | "error"
+  | "warning"
+  | "info"
+  | "success"
+  | "water"
+  | "brown"
+  | "purple";
 
 export type TColorScheme = {
   50: string;
@@ -20,8 +36,10 @@ export type TColorScheme = {
   900: string;
 };
 
+export type TBaseColors = Record<TColors, TColorProps>;
+
 export type TColorTheme = {
-  palette: {
+  palette: TBaseColors & {
     common: {
       black: string;
       white: string;
@@ -33,15 +51,6 @@ export type TColorTheme = {
       disabled: string;
     };
 
-    primary: TColorProps;
-    secondary: TColorProps;
-    error: TColorProps;
-    warning: TColorProps;
-    info: TColorProps;
-    success: TColorProps;
-    water: TColorProps;
-    brown: TColorProps;
-    purple: TColorProps;
     grey: TColorScheme;
 
     background: {

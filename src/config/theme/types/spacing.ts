@@ -2,25 +2,25 @@ import { FlexStyle } from "react-native/types";
 
 export type TSizes = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 
-export type TAliasedSpacing = number | TSizes;
+export type TExtendedSpacing = number | TSizes;
 
-export type TAliasedFlexboxProps = {
+export type TExtendedFlexboxProps = {
   // Margins
-  m?: TAliasedSpacing;
-  mx?: TAliasedSpacing;
-  my?: TAliasedSpacing;
-  mr?: TAliasedSpacing;
-  ml?: TAliasedSpacing;
-  mt?: TAliasedSpacing;
-  mb?: TAliasedSpacing;
+  m?: TExtendedSpacing;
+  mx?: TExtendedSpacing;
+  my?: TExtendedSpacing;
+  mr?: TExtendedSpacing;
+  ml?: TExtendedSpacing;
+  mt?: TExtendedSpacing;
+  mb?: TExtendedSpacing;
   // Paddings
-  p?: TAliasedSpacing;
-  px?: TAliasedSpacing;
-  py?: TAliasedSpacing;
-  pr?: TAliasedSpacing;
-  pl?: TAliasedSpacing;
-  pt?: TAliasedSpacing;
-  pb?: TAliasedSpacing;
+  p?: TExtendedSpacing;
+  px?: TExtendedSpacing;
+  py?: TExtendedSpacing;
+  pr?: TExtendedSpacing;
+  pl?: TExtendedSpacing;
+  pt?: TExtendedSpacing;
+  pb?: TExtendedSpacing;
   // Flex
   flexDir?: FlexStyle["flexDirection"];
   justify?: FlexStyle["justifyContent"];

@@ -1,7 +1,7 @@
 import React from "react";
-import { styled, TAliasedFlexboxProps } from "..";
+import { styled, TExtendedFlexboxProps } from "..";
 
-const Pressable = styled.Pressable<TAliasedFlexboxProps>();
+const Pressable = styled.Pressable<TExtendedFlexboxProps>();
 
 export const App = () => {
   return (

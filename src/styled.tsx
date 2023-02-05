@@ -10,8 +10,8 @@ import {
   ViewProps,
   ViewStyle,
 } from "react-native";
-import { TAliasedFlexboxProps } from "./config";
-import { parseAliasedStyle } from "./utils";
+import { TExtendedFlexboxProps } from "./config";
+import { parseExtendedStyle } from "./utils";
 
 const styledComponent = <T, ComponentProps, ComponentStyleProps>(
   Component: any
@@ -21,18 +21,18 @@ const styledComponent = <T, ComponentProps, ComponentStyleProps>(
       ComponentProps &
       ComponentStyleProps &
       StyleProp<ComponentStyleProps> &
-      TAliasedFlexboxProps
+      TExtendedFlexboxProps
   ) => {
     const baseStyle = props as Pick<
       ComponentStyleProps,
       keyof ComponentStyleProps
     >;
-    const aliasedStyle = props as Pick<T, keyof T>;
+    const extendedStyle = props as Pick<T, keyof T>;
 
     return (
       <Component
         {...(props as any)}
-        style={[props, baseStyle, parseAliasedStyle(aliasedStyle)]}
+        style={[props, baseStyle, parseExtendedStyle(extendedStyle)]}
       />
     );
   };

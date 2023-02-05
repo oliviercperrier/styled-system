@@ -1,44 +1,58 @@
-import { FlexStyle } from "react-native";
+import { FlexStyle, TextStyle, ViewStyle } from "react-native";
 import {
   Sizes,
-  TAliasedSpacing,
-  TAliasedFlexboxProps,
+  TExtendedSpacing,
+  TExtendedFlexboxProps,
   TSizes,
+  TExtendedColorProps,
+  BaseColors,
+  TColors,
 } from "../config/theme";
 
-export const parseAliasedFlexStyles = (
-  aliasedFlexStyle: TAliasedFlexboxProps
+export const parseExtendedFlexStyles = (
+  extendedFlexStyle: TExtendedFlexboxProps
 ): Partial<FlexStyle> => ({
   // Margins
-  margin: getSize(aliasedFlexStyle.m),
-  marginRight: getSize(aliasedFlexStyle.mr),
-  marginLeft: getSize(aliasedFlexStyle.ml),
-  marginBottom: getSize(aliasedFlexStyle.mb),
-  marginTop: getSize(aliasedFlexStyle.mt),
-  marginHorizontal: getSize(aliasedFlexStyle.mx),
-  marginVertical: getSize(aliasedFlexStyle.my),
+  margin: getSize(extendedFlexStyle.m),
+  marginRight: getSize(extendedFlexStyle.mr),
+  marginLeft: getSize(extendedFlexStyle.ml),
+  marginBottom: getSize(extendedFlexStyle.mb),
+  marginTop: getSize(extendedFlexStyle.mt),
+  marginHorizontal: getSize(extendedFlexStyle.mx),
+  marginVertical: getSize(extendedFlexStyle.my),
   // Paddings
-  padding: getSize(aliasedFlexStyle.p),
-  paddingRight: getSize(aliasedFlexStyle.pr),
-  paddingLeft: getSize(aliasedFlexStyle.pl),
-  paddingBottom: getSize(aliasedFlexStyle.pb),
-  paddingTop: getSize(aliasedFlexStyle.pt),
-  paddingHorizontal: getSize(aliasedFlexStyle.px),
-  paddingVertical: getSize(aliasedFlexStyle.py),
+  padding: getSize(extendedFlexStyle.p),
+  paddingRight: getSize(extendedFlexStyle.pr),
+  paddingLeft: getSize(extendedFlexStyle.pl),
+  paddingBottom: getSize(extendedFlexStyle.pb),
+  paddingTop: getSize(extendedFlexStyle.pt),
+  paddingHorizontal: getSize(extendedFlexStyle.px),
+  paddingVertical: getSize(extendedFlexStyle.py),
   // Flex
-  flexDirection: aliasedFlexStyle.flexDir,
-  justifyContent: aliasedFlexStyle.justify,
+  flexDirection: extendedFlexStyle.flexDir,
+  justifyContent: extendedFlexStyle.justify,
 });
 
-const getSize = (styleElement: TAliasedSpacing | undefined) =>
+export const parseExtendedColors = (
+  extendedColorStyle: TExtendedColorProps
+): Pick<TextStyle, "color"> & Pick<ViewStyle, "backgroundColor"> => ({
+  color: getColor(extendedColorStyle.tColor),
+  backgroundColor: getColor(extendedColorStyle.tBgColor),
+});
+
+const getColor = (styleElement: TColors | undefined) =>
+  styleElement ? BaseColors[styleElement].main : undefined;
+
+const getSize = (styleElement: TExtendedSpacing | undefined) =>
   styleElement
     ? styleElement in Sizes
       ? (Sizes[styleElement as TSizes] as number)
       : styleElement
     : undefined;
 
-const parseAliasedStyle = (aliasedStyle: any) => ({
-  ...parseAliasedFlexStyles(aliasedStyle),
+const parseExtendedStyle = (extendedStyle: any) => ({
+  ...parseExtendedFlexStyles(extendedStyle),
+  ...parseExtendedColors(extendedStyle),
 });
 
-export default parseAliasedStyle;
+export default parseExtendedStyle;

@@ -1,9 +1,13 @@
 import React from "react";
-import { StyleSheet, TextProps as BaseTextProps, TextStyle } from "react-native";
-import { styled, TTypographyVariantKey } from "..";
+import {
+  StyleSheet,
+  TextProps as BaseTextProps,
+  TextStyle,
+} from "react-native";
+import { styled, TExtendedColorProps, TTypographyVariantKey } from "..";
 import { useTheme } from "../config/ConfigProvider";
 
-const StyledTypography = styled.Text();
+const StyledTypography = styled.Text<TExtendedColorProps>();
 
 type TextProps = BaseTextProps &
   TextStyle & {
@@ -19,7 +23,15 @@ export const Text = ({ variant, secondary, underline, ...base }: TextProps) => {
   const secondaryStyle = secondary ? {} : {};
 
   return (
-    <StyledTypography {...base} style={[base.style, variantStyle, secondaryStyle, underline && styles.underline]} />
+    <StyledTypography
+      {...base}
+      style={[
+        base.style,
+        variantStyle,
+        secondaryStyle,
+        underline && styles.underline,
+      ]}
+    />
   );
 };
 

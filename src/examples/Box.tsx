@@ -1,8 +1,8 @@
 import React from "react";
 import { styled } from "..";
-import { TAliasedFlexboxProps } from "../config/theme";
+import { TExtendedFlexboxProps } from "../config/theme";
 
-export const Box = styled.View<TAliasedFlexboxProps>();
+export const Box = styled.View<TExtendedFlexboxProps>();
 
 export const App = () => {
   return (
