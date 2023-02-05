@@ -7,6 +7,7 @@ import {
   TExtendedColorProps,
   BaseColors,
   TColors,
+  TExtendedBgColorProps,
 } from "../config/theme";
 
 export const parseExtendedFlexStyles = (
@@ -33,16 +34,6 @@ export const parseExtendedFlexStyles = (
   justifyContent: extendedFlexStyle.justify,
 });
 
-export const parseExtendedColors = (
-  extendedColorStyle: TExtendedColorProps
-): Pick<TextStyle, "color"> & Pick<ViewStyle, "backgroundColor"> => ({
-  color: getColor(extendedColorStyle.tColor),
-  backgroundColor: getColor(extendedColorStyle.tBgColor),
-});
-
-const getColor = (styleElement: TColors | undefined) =>
-  styleElement ? BaseColors[styleElement].main : undefined;
-
 const getSize = (styleElement: TExtendedSpacing | undefined) =>
   styleElement
     ? styleElement in Sizes
@@ -50,9 +41,25 @@ const getSize = (styleElement: TExtendedSpacing | undefined) =>
       : styleElement
     : undefined;
 
+export const parseExtendedColor = (
+  extendedColorStyle: TExtendedColorProps
+): Pick<TextStyle, "color"> => ({
+  color: getColor(extendedColorStyle.tColor),
+});
+
+export const parseExtendedBgColor = (
+  extendedColorStyle: TExtendedBgColorProps
+): Pick<ViewStyle, "backgroundColor"> => ({
+  backgroundColor: getColor(extendedColorStyle.tBgColor),
+});
+
+const getColor = (styleElement: TColors | undefined) =>
+  styleElement ? BaseColors[styleElement].main : undefined;
+
 const parseExtendedStyle = (extendedStyle: any) => ({
   ...parseExtendedFlexStyles(extendedStyle),
-  ...parseExtendedColors(extendedStyle),
+  ...parseExtendedColor(extendedStyle),
+  ...parseExtendedBgColor(extendedStyle),
 });
 
 export default parseExtendedStyle;

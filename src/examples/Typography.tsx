@@ -4,10 +4,17 @@ import {
   TextProps as BaseTextProps,
   TextStyle,
 } from "react-native";
-import { styled, TExtendedColorProps, TTypographyVariantKey } from "..";
+import {
+  styled,
+  TExtendedBgColorProps,
+  TExtendedColorProps,
+  TTypographyVariantKey,
+} from "..";
 import { useTheme } from "../config/ConfigProvider";
 
-const StyledTypography = styled.Text<TExtendedColorProps>();
+const StyledTypography = styled.Text<
+  TExtendedColorProps & TExtendedBgColorProps
+>();
 
 type TextProps = BaseTextProps &
   TextStyle & {

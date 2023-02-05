@@ -1,5 +1,8 @@
 export type TExtendedColorProps = {
   tColor?: TColors;
+};
+
+export type TExtendedBgColorProps = {
   tBgColor?: TColors;
 };
 
