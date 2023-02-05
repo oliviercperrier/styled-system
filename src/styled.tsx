@@ -13,7 +13,7 @@ import {
 import { TExtendedFlexboxProps } from "./config";
 import { parseExtendedStyle } from "./utils";
 
-const styledComponent = <T, ComponentProps, ComponentStyleProps>(
+const styledComponent = <T, ComponentType, ComponentProps, ComponentStyleProps>(
   Component: any
 ) => {
   return (
@@ -21,7 +21,9 @@ const styledComponent = <T, ComponentProps, ComponentStyleProps>(
       ComponentProps &
       ComponentStyleProps &
       StyleProp<ComponentStyleProps> &
-      TExtendedFlexboxProps
+      TExtendedFlexboxProps & {
+        ref: React.Ref<ComponentType>;
+      }
   ) => {
     const baseStyle = props as Pick<
       ComponentStyleProps,
@@ -39,9 +41,9 @@ const styledComponent = <T, ComponentProps, ComponentStyleProps>(
 };
 
 const styled = {
-  View: <T,>() => styledComponent<T, ViewProps, ViewStyle>(View),
-  Text: <T,>() => styledComponent<T, TextProps, TextStyle>(Text),
-  Pressable: <T,>() => styledComponent<T, PressableProps, ViewStyle>(Pressable),
+  View: <T,>() => styledComponent<T, View, ViewProps, ViewStyle>(View),
+  Text: <T,>() => styledComponent<T, Text, TextProps, TextStyle>(Text),
+  Pressable: <T,>() => styledComponent<T, View, PressableProps, ViewStyle>(Pressable),
 };
 
 export default styled;
