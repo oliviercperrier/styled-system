@@ -1,4 +1,4 @@
-import { TTheme, TThemeBase } from "theme/types/Theme";
+import { TTheme, TThemeBase } from "../../theme/types/Theme";
 import { fns } from "./funcs";
 
 export function attachFunctions(themeBase: TThemeBase): TTheme {

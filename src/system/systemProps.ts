@@ -1,4 +1,4 @@
-import { TStyleSystemSize } from "types/StyleSystem";
+import { TStyleSystemSize } from "../types/StyleSystem";
 import { SystemValueType } from "./getter";
 
 export interface SystemPropData {

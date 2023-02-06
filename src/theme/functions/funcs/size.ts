@@ -1,4 +1,4 @@
-import { TSize, TSizes } from "theme/types/Sizes";
+import { TSize, TSizes } from "../../../theme/types/Sizes";
 
 interface GetSize {
   size: TSize;

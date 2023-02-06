@@ -70,15 +70,5 @@
     /* Advanced Options */
     "skipLibCheck": true /* Skip type checking of declaration files. */,
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
-
-    "baseUrl": "src",
-
-    "paths": {
-      "@hooks/*": ["src/hooks/*"],
-      "@system/*": ["src/system/*"],
-      "@theme/*": ["src/theme/*"],
-      "@types/*": ["src/types/*"],
-      "@utils/*": ["src/utils/*"]
-    }
   }
 }

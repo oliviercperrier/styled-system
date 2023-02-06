@@ -1,5 +1,5 @@
-import { filterProps } from "utils/filterProps";
-import { TStyleSystemProps } from "types/StyleSystem";
+import { filterProps } from "../utils/filterProps";
+import { TStyleSystemProps } from "../types/StyleSystem";
 
 export function extractSystemStyles<T extends Record<string, any>>(
   others: TStyleSystemProps & T

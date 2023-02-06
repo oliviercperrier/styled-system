@@ -1,8 +1,8 @@
-import { useSx } from "hooks/useSx";
+import { useSx } from "../hooks";
 import React, { forwardRef } from "react";
 import { View, ViewStyle } from "react-native";
-import { extractSystemStyles } from "system/extractSystemStyles";
-import { DefaultProps } from "types/DefaultProps";
+import { extractSystemStyles } from "../system/extractSystemStyles";
+import { DefaultProps } from "../types/DefaultProps";
 
 export type TBoxProps = DefaultProps<ViewStyle> & {
   children?: React.ReactNode;

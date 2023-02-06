@@ -3,8 +3,7 @@ import commonjs from "rollup-plugin-commonjs";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import json from "rollup-plugin-json";
 import replace from "@rollup/plugin-replace";
-import pkg from './package.json' assert { type: 'json' };
-import tsConfigPaths from "rollup-plugin-tsconfig-paths";
+import pkg from "./package.json" assert { type: "json" };
 
 const cjs = {
   exports: "named",
@@ -23,7 +22,6 @@ const getCJS = (override) => ({ ...cjs, ...override });
 const getESM = (override) => ({ ...esm, ...override });
 
 const commonPlugins = [
-  tsConfigPaths(),
   typescript({
     // The build breaks if the tests are included by the typescript plugin.
     // Since un-excluding them in tsconfig.json, we must explicitly exclude them
@@ -40,7 +38,7 @@ const commonPlugins = [
   }),
   replace({
     __VERSION__: JSON.stringify(pkg.version),
-    preventAssignment: true
+    preventAssignment: true,
   }),
   /** @type {import('rollup').Plugin} */
   ({
@@ -78,13 +76,13 @@ const configBase = {
 const browserConfig = {
   ...configBase,
   output: [
-    getESM({ file: 'dist/styled-system.browser.esm.js' }),
-    getCJS({ file: 'dist/styled-system.browser.cjs.js' }),
+    getESM({ file: "dist/styled-system.browser.esm.js" }),
+    getCJS({ file: "dist/styled-system.browser.cjs.js" }),
   ],
   plugins: configBase.plugins.concat(
     replace({
       __SERVER__: JSON.stringify(false),
-      preventAssignment: true
+      preventAssignment: true,
     })
   ),
 };

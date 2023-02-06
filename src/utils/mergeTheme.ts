@@ -1,5 +1,5 @@
-import { TTheme } from "theme/types/Theme";
-import { isFunction } from "utils/helper";
+import { TTheme } from "../theme/types/Theme";
+import { isFunction } from "../utils/helper";
 
 type ThemeFn = (baseTheme?: TTheme) => TTheme;
 type ThemeArgument = TTheme | ThemeFn | undefined;

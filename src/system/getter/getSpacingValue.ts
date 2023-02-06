@@ -1,5 +1,5 @@
-import { TSize } from "theme/types/Sizes";
-import { TTheme } from "theme/types/Theme";
+import { TSize } from "../../theme/types/Sizes";
+import { TTheme } from "../../theme/types/Theme";
 
 export const getSpacingValue = (size: TSize, theme: TTheme) => {
   // Handle negative?

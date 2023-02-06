@@ -1,9 +1,9 @@
 import { css } from "@emotion/native";
-import { useTheme } from "ConfigProvider";
-import { getSystemStyles } from "system/getSystemStyles";
-import { TTheme } from "theme/types/Theme";
-import { Sx } from "types/DefaultProps";
-import { TStyleSystemProps } from "types/StyleSystem";
+import { useTheme } from "../ConfigProvider";
+import { getSystemStyles } from "../system/getSystemStyles";
+import { TTheme } from "../theme/types/Theme";
+import { Sx } from "../types/DefaultProps";
+import { TStyleSystemProps } from "../types/StyleSystem";
 
 const extractSx = (sx: Sx, theme: TTheme) => {
   return typeof sx === "function" ? sx(theme) : sx;

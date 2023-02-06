@@ -1,7 +1,7 @@
 import { TStyleSystemProps, TStyleSystemSize } from "../types/StyleSystem";
-import { TTheme } from "theme/types/Theme";
-import { SYSTEM_PROPS } from "system/systemProps";
-import { valueGetters } from "system/getter";
+import { TTheme } from "../theme/types/Theme";
+import { SYSTEM_PROPS } from "../system/systemProps";
+import { valueGetters } from "../system/getter";
 
 export const getSystemStyles = (
   systemStyles: TStyleSystemProps,

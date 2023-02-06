@@ -1,6 +1,6 @@
 import { ReactNativeStyle } from "@emotion/native";
 import { StyleProp } from "react-native";
-import { TTheme } from "theme/types/Theme";
+import { TTheme } from "../theme/types/Theme";
 import { TStyleSystemProps } from "./StyleSystem";
 
 export type Sx<StyleType extends ReactNativeStyle = ReactNativeStyle> =

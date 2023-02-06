@@ -1,6 +1,6 @@
 import { FlexStyle, TextStyle, ViewStyle } from "react-native";
-import { TColor } from "theme/types/Colors";
-import { TNumberSize, TSize } from "theme/types/Sizes";
+import { TColor } from "../theme/types/Colors";
+import { TNumberSize, TSize } from "../theme/types/Sizes";
 
 export type SystemProp<Value> =
   | Value
