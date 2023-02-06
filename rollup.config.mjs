@@ -4,6 +4,7 @@ import nodeResolve from "@rollup/plugin-node-resolve";
 import json from "rollup-plugin-json";
 import replace from "@rollup/plugin-replace";
 import pkg from './package.json' assert { type: 'json' };
+import tsConfigPaths from "rollup-plugin-tsconfig-paths";
 
 const cjs = {
   exports: "named",
@@ -22,6 +23,7 @@ const getCJS = (override) => ({ ...cjs, ...override });
 const getESM = (override) => ({ ...esm, ...override });
 
 const commonPlugins = [
+  tsConfigPaths(),
   typescript({
     // The build breaks if the tests are included by the typescript plugin.
     // Since un-excluding them in tsconfig.json, we must explicitly exclude them

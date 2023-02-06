@@ -1,5 +1,3 @@
-export * from "./styled"
-export {default as styled} from "./styled"
-
-export * from "./utils"
-export * from "./config"
+export * from "hooks";
+export * from "theme";
+export * from "types";
