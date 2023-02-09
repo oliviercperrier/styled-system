@@ -1,13 +1,18 @@
 import { ReactNativeStyle } from "@emotion/native";
 import { StyleProp } from "react-native";
 import { TTheme } from "../theme/types/Theme";
-import { TStyleSystemProps } from "./StyleSystem";
+import { TStyleSystemProps, TTypographyStyleSystemProps } from "./StyleSystem";
 
 export type Sx<StyleType extends ReactNativeStyle = ReactNativeStyle> =
   | StyleType
   | ((theme: TTheme) => StyleType);
 
-export interface DefaultProps<T> extends TStyleSystemProps {
+export interface BaseDefaultProps<T> {
   style?: StyleProp<T>;
   sx?: Sx | Sx[];
 }
+
+export type DefaultProps<T> = TStyleSystemProps & BaseDefaultProps<T>;
+
+export type DefaultTextProps<T> = TTypographyStyleSystemProps &
+  BaseDefaultProps<T>;

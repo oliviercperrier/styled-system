@@ -1,4 +1,4 @@
-import { TStyleSystemSize } from "../types/StyleSystem";
+import { TStyleSystemProp, TTypographyStyleSystemProp } from "../types/StyleSystem";
 import { SystemValueType } from "./getter";
 
 export interface SystemPropData {
@@ -6,7 +6,7 @@ export interface SystemPropData {
   property: string;
 }
 
-export const SYSTEM_PROPS: Record<TStyleSystemSize, SystemPropData> = {
+export const BASE_SYSTEM_PROPS: Record<TStyleSystemProp, SystemPropData> = {
   f: { type: "default", property: "flex" },
   fgrow: { type: "default", property: "flexGrow" },
   fshrink: { type: "default", property: "flexShrink" },
@@ -35,17 +35,7 @@ export const SYSTEM_PROPS: Record<TStyleSystemSize, SystemPropData> = {
   py: { type: "spacing", property: "paddingVertical" },
 
   bg: { type: "color", property: "backgroundColor" },
-  c: { type: "color", property: "color" },
   opacity: { type: "default", property: "opacity" },
-
-  ff: { type: "default", property: "fontFamily" },
-  fz: { type: "fontSize", property: "fontSize" },
-  fw: { type: "default", property: "fontWeight" },
-  lts: { type: "default", property: "letterSpacing" },
-  ta: { type: "default", property: "textAlign" },
-  lh: { type: "default", property: "lineHeight" },
-  fs: { type: "default", property: "fontStyle" },
-  tt: { type: "default", property: "textTransform" },
 
   w: { type: "spacing", property: "width" },
   miw: { type: "spacing", property: "minWidth" },
@@ -61,4 +51,17 @@ export const SYSTEM_PROPS: Record<TStyleSystemSize, SystemPropData> = {
   right: { type: "default", property: "right" },
 
   display: { type: "default", property: "display" },
+};
+
+export const TYPOGRAPHY_SYSTEM_PROPS: Record<TTypographyStyleSystemProp, SystemPropData> = {
+  ...BASE_SYSTEM_PROPS,
+  color: { type: "color", property: "color" },
+  ff: { type: "default", property: "fontFamily" },
+  fz: { type: "fontSize", property: "fontSize" },
+  fw: { type: "default", property: "fontWeight" },
+  lts: { type: "default", property: "letterSpacing" },
+  ta: { type: "default", property: "textAlign" },
+  lh: { type: "default", property: "lineHeight" },
+  fs: { type: "default", property: "fontStyle" },
+  tt: { type: "default", property: "textTransform" },
 };

@@ -1,19 +1,25 @@
 import { useSx } from "../hooks";
 import React, { forwardRef } from "react";
-import { View, ViewStyle } from "react-native";
+import {
+  Pressable as RNPressable,
+  PressableProps as BasePressableProps,
+  View,
+  ViewStyle,
+} from "react-native";
 import { extractSystemStyles } from "../system/extractSystemStyles";
 import { DefaultProps } from "../types/DefaultProps";
 
-export type TBoxProps = DefaultProps<ViewStyle> & {
-  children?: React.ReactNode;
-}
+export type TPressableProps = DefaultProps<ViewStyle> &
+  BasePressableProps & {
+    children?: React.ReactNode;
+  };
 
-export const Box = forwardRef<View, TBoxProps>(
+export const Pressable = forwardRef<View, TPressableProps>(
   ({ style, sx, ...others }, ref) => {
     const { systemStyles, rest } = extractSystemStyles(others);
 
     return (
-      <View
+      <RNPressable
         ref={ref}
         style={[useSx(sx || [], systemStyles), style]}
         {...rest}
@@ -22,4 +28,4 @@ export const Box = forwardRef<View, TBoxProps>(
   }
 );
 
-export default Box;
+export default Pressable;

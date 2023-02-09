@@ -16,10 +16,10 @@ export interface TStyleSystemProps {
   fdirection?: SystemProp<FlexStyle["flexDirection"]>;
   fbasis?: SystemProp<FlexStyle["flexBasis"]>;
   justifyContent?: FlexStyle["justifyContent"];
-  alignContent?:  FlexStyle["alignContent"];
+  alignContent?: FlexStyle["alignContent"];
   alignItems?: FlexStyle["alignItems"];
   alignSelf?: FlexStyle["alignSelf"];
-  
+
   m?: SystemProp<SpacingValue>;
   my?: SystemProp<SpacingValue>;
   mx?: SystemProp<SpacingValue>;
@@ -37,17 +37,7 @@ export interface TStyleSystemProps {
   pr?: SystemProp<SpacingValue>;
 
   bg?: SystemProp<TColor>;
-  c?: SystemProp<TColor>;
   opacity?: SystemProp<ViewStyle["opacity"]>;
-
-  ff?: SystemProp<TextStyle["fontFamily"]>;
-  fz?: SystemProp<SpacingValue>;
-  fw?: SystemProp<TextStyle["fontWeight"]>;
-  lts?: SystemProp<TextStyle["letterSpacing"]>;
-  ta?: SystemProp<TextStyle["textAlign"]>;
-  lh?: SystemProp<TextStyle["lineHeight"]>;
-  fs?: SystemProp<TextStyle["fontStyle"]>;
-  tt?: SystemProp<TextStyle["textTransform"]>;
 
   w?: SystemProp<ViewStyle["width"]>;
   miw?: SystemProp<ViewStyle["minWidth"]>;
@@ -65,4 +55,17 @@ export interface TStyleSystemProps {
   display?: SystemProp<ViewStyle["display"]>;
 }
 
-export type TStyleSystemSize = keyof TStyleSystemProps;
+export interface TTypographyStyleSystemProps {
+  color?: SystemProp<TColor>;
+  ff?: SystemProp<TextStyle["fontFamily"]>;
+  fz?: SystemProp<SpacingValue>;
+  fw?: SystemProp<TextStyle["fontWeight"]>;
+  lts?: SystemProp<TextStyle["letterSpacing"]>;
+  ta?: SystemProp<TextStyle["textAlign"]>;
+  lh?: SystemProp<TextStyle["lineHeight"]>;
+  fs?: SystemProp<TextStyle["fontStyle"]>;
+  tt?: SystemProp<TextStyle["textTransform"]>;
+}
+
+export type TTypographyStyleSystemProp = keyof TTypographyStyleSystemProps;
+export type TStyleSystemProp = keyof TStyleSystemProps;

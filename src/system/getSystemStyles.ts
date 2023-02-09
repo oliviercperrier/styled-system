@@ -1,14 +1,23 @@
-import { TStyleSystemProps, TStyleSystemSize } from "../types/StyleSystem";
+import {
+  TStyleSystemProps,
+  TStyleSystemProp,
+  TTypographyStyleSystemProp,
+  TTypographyStyleSystemProps,
+} from "../types/StyleSystem";
 import { TTheme } from "../theme/types/Theme";
-import { SYSTEM_PROPS } from "../system/systemProps";
+import {
+  BASE_SYSTEM_PROPS,
+  TYPOGRAPHY_SYSTEM_PROPS,
+  SystemPropData,
+} from "../system/systemProps";
 import { valueGetters } from "../system/getter";
 
 export const getSystemStyles = (
   systemStyles: TStyleSystemProps,
   theme: TTheme,
-  systemProps = SYSTEM_PROPS
+  systemProps = BASE_SYSTEM_PROPS
 ) =>
-  (Object.keys(systemProps) as TStyleSystemSize[]).reduce<Record<any, any>>(
+  (Object.keys(systemProps) as TStyleSystemProp[]).reduce<Record<any, any>>(
     (acc, systemProp) => {
       if (
         systemProp in systemStyles &&
@@ -27,3 +36,24 @@ export const getSystemStyles = (
     },
     []
   );
+
+export const getTextSystemStyles = (
+  systemStyles: TTypographyStyleSystemProps,
+  theme: TTheme,
+  systemProps = TYPOGRAPHY_SYSTEM_PROPS
+) =>
+  (Object.keys(systemProps) as TTypographyStyleSystemProp[]).reduce<
+    Record<any, any>
+  >((acc, systemProp) => {
+    if (systemProp in systemStyles && systemStyles[systemProp] !== undefined) {
+      const value = systemStyles[systemProp];
+      const parsedValue = valueGetters[systemProps[systemProp].type](
+        value,
+        theme
+      );
+
+      acc.push({ [systemProps[systemProp].property]: parsedValue });
+    }
+
+    return acc;
+  }, []);
