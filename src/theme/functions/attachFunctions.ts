@@ -7,7 +7,9 @@ export function attachFunctions(themeBase: TThemeBase): TTheme {
     fn: {
       size: fns.size,
       darken: fns.darken,
-      lighten: fns.lighten
+      lighten: fns.lighten,
+      radius: fns.radius(themeBase),
+      color: fns.color(themeBase),
     },
   };
 }

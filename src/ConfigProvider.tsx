@@ -1,6 +1,7 @@
 import React, { PropsWithChildren, useMemo, useContext } from "react";
 import DEFAULT_THEME from "./theme/defaultTheme";
 import { TTheme } from "./theme/types/Theme";
+import { filterProps } from "./utils/filterProps";
 import mergeTheme from "./utils/mergeTheme";
 
 export interface ConfigContextProps {
@@ -22,6 +23,26 @@ export const ConfigConsumer = ConfigContext.Consumer;
 export const useConfig = () => useContext(ConfigContext);
 
 export const useTheme = () => useConfig().theme;
+
+export const useComponentDefaultProps = <
+  T extends Record<string, any>,
+  U extends Partial<T> = {}
+>(
+  component: string,
+  defaultProps: U,
+  props: T
+): T & {
+  [Key in Extract<keyof T, keyof U>]-?: U[Key] | NonNullable<T[Key]>;
+} => {
+  const theme = useTheme();
+  const contextPropsPayload = theme.components[component]?.defaultProps;
+  const contextProps =
+    typeof contextPropsPayload === "function"
+      ? contextPropsPayload(theme)
+      : contextPropsPayload;
+
+  return { ...defaultProps, ...contextProps, ...filterProps(props) };
+};
 
 const ConfigProvider = ({
   theme = DEFAULT_THEME,

@@ -8,7 +8,6 @@ import { TTheme } from "../theme/types/Theme";
 import {
   BASE_SYSTEM_PROPS,
   TYPOGRAPHY_SYSTEM_PROPS,
-  SystemPropData,
 } from "../system/systemProps";
 import { valueGetters } from "../system/getter";
 

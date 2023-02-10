@@ -55,7 +55,7 @@ export interface TStyleSystemProps {
   display?: SystemProp<ViewStyle["display"]>;
 }
 
-export interface TTypographyStyleSystemProps {
+export interface TTypographyStyleSystemProps extends TStyleSystemProps {
   color?: SystemProp<TColor>;
   ff?: SystemProp<TextStyle["fontFamily"]>;
   fz?: SystemProp<SpacingValue>;

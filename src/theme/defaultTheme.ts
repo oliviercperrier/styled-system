@@ -6,8 +6,9 @@ import { TThemeBase } from "./types/Theme";
 const _DEFAULT_THEME: TThemeBase = {
   loader: "",
 
-  dateFormat: "",
-  dateLocale: "",
+  dateFormatISO: "yyyy-MM-dd",
+  dateFormat: "MM/dd/yyyy",
+  dateLocale: "en-US",
 
   fontSizes: {
     xs: 12,
@@ -16,7 +17,8 @@ const _DEFAULT_THEME: TThemeBase = {
     lg: 18,
     xl: 20,
   },
-
+  
+  defaultRadius: "md",
   radius: {
     xs: 2,
     sm: 4,
@@ -44,6 +46,8 @@ const _DEFAULT_THEME: TThemeBase = {
   typography: DefaultTypographyTheme,
 
   palette: DefaultColorPalette,
+
+  components: {}
 };
 
 const DEFAULT_THEME = attachFunctions(_DEFAULT_THEME);

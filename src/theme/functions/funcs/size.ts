@@ -1,7 +1,7 @@
-import { TSize, TSizes } from "../../../theme/types/Sizes";
+import { TNumberSize, TSize, TSizes } from "../../../theme/types/Sizes";
 
-interface GetSize {
-  size: TSize;
+export interface GetSize {
+  size: string | number;
   sizes: TSizes;
 }
 
@@ -10,7 +10,7 @@ export const size = (props: GetSize) => {
     return props.size;
   }
 
-  const computedSize = props.sizes[props.size];
+  const computedSize = props.sizes[props.size as TSize];
 
   return computedSize !== undefined
     ? computedSize

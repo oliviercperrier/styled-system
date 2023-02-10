@@ -1,10 +1,13 @@
-import { TThemeFunctions } from "../../../theme/types/Theme";
 import { size } from "./size";
 import { darken } from "./darken";
 import { lighten } from "./lighten";
+import { radius } from "./radius";
+import { color } from "./color";
 
-export const fns: TThemeFunctions = {
+export const fns = {
   size,
   darken,
   lighten,
+  radius,
+  color
 };

@@ -10,7 +10,12 @@ export type TBoxProps = DefaultProps<ViewStyle> &
     shouldRender?: boolean;
   };
 
-export const Box = ({ style, sx, shouldRender, ...others }: TBoxProps) => {
+export const Box = ({
+  style,
+  sx,
+  shouldRender = true,
+  ...others
+}: TBoxProps) => {
   if (!shouldRender) return null;
 
   const { systemStyles, rest } = extractSystemStyles(others);
