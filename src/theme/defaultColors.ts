@@ -181,9 +181,10 @@ export const DefaultColorPalette: TColorPaletteTheme = {
     default: ref.backgroundDefault,
   },
 
-  surface: {
-    disabled: ref.surfaceDisabled,
-    onDisabled: ref.onSurfaceDisabled,
+  disabled: {
+    background: ref.grey200,
+    border: ref.grey300,
+    color: ref.grey500
   },
 
   border: {

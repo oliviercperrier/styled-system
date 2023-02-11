@@ -1,11 +1,27 @@
-import { TColor, TColorBase, TThemeBase } from "../../types";
+import Color from "color";
+import { TColor, TColorBase, TColorProps, TThemeBase } from "../../types";
+import { darken } from "./darken";
 
 export function color(theme: TThemeBase) {
-  return (color: TColor): string => {
+  return (color: TColor): TColorProps => {
+    let colorPayload: TColorProps | undefined = undefined;
+
     if (color in theme.palette) {
-      return theme.palette[color as TColorBase].main;
+      colorPayload = theme.palette[color as TColorBase];
     }
 
-    return color;
+    const mainColor = colorPayload?.main || color;
+    const textColor = Color(mainColor).isDark()
+      ? theme.palette.common.white
+      : theme.palette.text.primary;
+
+    return {
+      main: mainColor,
+      container: colorPayload?.container || mainColor,
+      light: colorPayload?.light || mainColor,
+      dark: colorPayload?.dark || darken(mainColor, 0.25),
+      onContainer: colorPayload?.onContainer || textColor,
+      contrastText: colorPayload?.contrastText || textColor,
+    };
   };
 }

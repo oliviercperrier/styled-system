@@ -12,7 +12,5 @@ export const size = (props: GetSize) => {
 
   const computedSize = props.sizes[props.size as TSize];
 
-  return computedSize !== undefined
-    ? computedSize
-    : props.size || props.sizes.md;
+  return computedSize !== undefined ? computedSize : props.sizes.md;
 };

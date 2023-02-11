@@ -53,9 +53,10 @@ export type TThemePalette = Record<TColorBase, TColorProps> & {
     default: string;
   };
 
-  surface: {
-    disabled: string;
-    onDisabled: string;
+  disabled: {
+    background: string;
+    color: string;
+    border: string;
   };
 
   border: {

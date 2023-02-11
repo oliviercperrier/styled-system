@@ -1,4 +1,4 @@
-import { TColor, TColorPaletteTheme } from "./Colors";
+import { TColor, TColorPaletteTheme, TColorProps } from "./Colors";
 import { TComponentsTheme } from "./Components";
 import { TNumberSize, TSize, TSizes } from "./Sizes";
 import { TTypographyTheme } from "./Typography";
@@ -8,7 +8,7 @@ export interface TThemeFunctions {
   lighten(color: string, alpha: number): string;
   darken(color: string, alpha: number): string;
   radius(size?: TNumberSize): number;
-  color(color: TColor): string;
+  color(color: TColor): TColorProps;
 }
 
 export type TTheme = {
