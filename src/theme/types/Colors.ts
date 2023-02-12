@@ -1,71 +1,52 @@
-export type TColorBase =
-  | "primary"
-  | "secondary"
-  | "error"
-  | "warning"
-  | "info"
-  | "success"
+import { Tuple } from "./Tuple";
+
+export type TDefaultColor =
+  | "dark"
+  | "gray"
+  | "red"
   | "water"
+  | "purple"
+  | "blue"
+  | "green"
+  | "yellow"
   | "brown"
-  | "purple";
+  | "orange"
+  | (string & {});
 
-export type TColor = TColorBase | (string & {});
+export type TThemeColorsOverride = {};
 
-export type TColorProps = {
-  main: string;
-  light: string;
-  dark: string;
-  contrastText: string;
-  container: string;
-  onContainer: string;
-};
+export type TThemeColors = TThemeColorsOverride extends {
+  colors: Record<infer CustomColors, Tuple<string, 10>>;
+}
+  ? Record<CustomColors, Tuple<string, 10>>
+  : Record<TDefaultColor, Tuple<string, 10>>;
 
-export type TColorScheme = {
-  50: string;
-  100: string;
-  200: string;
-  300: string;
-  400: string;
-  500: string;
-  600: string;
-  700: string;
-  800: string;
-  900: string;
-};
+export type TColor = keyof TThemeColors;
 
-export type TColors = Record<TColor, TColorProps>;
+export type TThemePalette = {
+  colors: TThemeColors;
 
-export type TThemePalette = Record<TColorBase, TColorProps> & {
-  common: {
-    black: string;
-    white: string;
-  };
+  primaryColor: keyof TThemeColors;
 
-  text: {
+  primaryShade: {
+    light: number,
+    dark: number,
+  },
+
+  textColor: {
     primary: string;
     secondary: string;
     disabled: string;
   };
 
-  grey: TColorScheme;
-
   background: {
     default: string;
-  };
-
-  disabled: {
-    background: string;
-    color: string;
-    border: string;
+    disabled: string;
   };
 
   border: {
     default: string;
-  };
-
-  action: {
-    hover: (color: string) => string;
-    press: (color: string) => string;
+    disabled: string;
   };
 };
 

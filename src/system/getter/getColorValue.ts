@@ -1,10 +1,6 @@
-import { TColor, TColorBase } from "../../theme/types/Colors";
+import { TColor } from "../../theme/types/Colors";
 import { TTheme } from "../../theme/types/Theme";
 
-export const getColorValue = (color: TColor, theme: TTheme): string => {
-  if (color in theme.palette) {
-    return theme.palette[color as TColorBase].main;
-  }
-
-  return color;
-};
+export const getColorValue = (color: TColor, theme: TTheme): string =>
+  theme.fn.variant({ variant: "filled", color, primaryFallback: false })
+    .background;

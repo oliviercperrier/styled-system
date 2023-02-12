@@ -65,6 +65,9 @@ export interface TTypographyStyleSystemProps extends TStyleSystemProps {
   lh?: SystemProp<TextStyle["lineHeight"]>;
   fs?: SystemProp<TextStyle["fontStyle"]>;
   tt?: SystemProp<TextStyle["textTransform"]>;
+  tdl?: SystemProp<TextStyle["textDecorationLine"]>;
+  tdc?: SystemProp<TColor>;
+  tds?: SystemProp<TextStyle["textDecorationStyle"]>;
 }
 
 export type TTypographyStyleSystemProp = keyof TTypographyStyleSystemProps;

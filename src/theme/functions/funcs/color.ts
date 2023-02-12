@@ -1,27 +1,36 @@
-import Color from "color";
-import { TColor, TColorBase, TColorProps, TThemeBase } from "../../types";
-import { darken } from "./darken";
+import type { TThemeBase } from "../../types";
+import { primaryShade } from "./primaryShade";
 
 export function color(theme: TThemeBase) {
-  return (color: TColor): TColorProps => {
-    let colorPayload: TColorProps | undefined = undefined;
+  const getPrimaryShade = primaryShade(theme);
 
-    if (color in theme.palette) {
-      colorPayload = theme.palette[color as TColorBase];
+  return (
+    color: string,
+    shade?: number,
+    primaryFallback: boolean = true,
+    useSplittedShade: boolean = true
+  ) => {
+    if (typeof color === "string" && color.includes(".")) {
+      const [splitterColor, _splittedShade] = color.split(".");
+      const splittedShade = parseInt(_splittedShade, 10);
+
+      if (
+        splitterColor in theme.palette.colors &&
+        splittedShade >= 0 &&
+        splittedShade < 10
+      ) {
+        return theme.palette.colors[splitterColor][
+          typeof shade === "number" && !useSplittedShade ? shade : splittedShade
+        ];
+      }
     }
 
-    const mainColor = colorPayload?.main || color;
-    const textColor = Color(mainColor).isDark()
-      ? theme.palette.common.white
-      : theme.palette.text.primary;
+    const _shade = typeof shade === "number" ? shade : getPrimaryShade();
 
-    return {
-      main: mainColor,
-      container: colorPayload?.container || mainColor,
-      light: colorPayload?.light || mainColor,
-      dark: colorPayload?.dark || darken(mainColor, 0.25),
-      onContainer: colorPayload?.onContainer || textColor,
-      contrastText: colorPayload?.contrastText || textColor,
-    };
+    return color in theme.palette.colors
+      ? theme.palette.colors[color][_shade]
+      : primaryFallback
+      ? theme.palette.colors[theme.palette.primaryColor][_shade]
+      : color;
   };
 }

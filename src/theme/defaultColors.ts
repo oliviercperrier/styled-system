@@ -1,204 +1,161 @@
-import color from "color";
-import { TColors, TColorPaletteTheme } from "./types/Colors";
+import { TColorPaletteTheme, TColor } from "./types/Colors";
+import { Tuple } from "./types/Tuple";
 
-const ref = {
-  black: "#000000",
-  white: "#FFFFFF",
+export const DEFAULT_COLORS = {
+  dark: [
+    "#C1C2C5",
+    "#A6A7AB",
+    "#909296",
+    "#5c5f66",
+    "#373A40",
+    "#2C2E33",
+    "#25262b",
+    "#1A1B1E",
+    "#141517",
+    "#101113",
+  ],
 
-  borderDefault: "#e6e6e6",
+  gray: [
+    "#f8f8f8",
+    "#f2f2f2",
+    "#e5e5e5",
+    "#c5c5c5",
+    "#b1b1b1",
+    "#9e9e9e",
+    "#7e7e7e",
+    "#6f6f6f",
+    "#5f5f5f",
+    "#2f2f2f",
+  ],
 
-  surfaceDisabled: "#f3f3f3",
-  onSurfaceDisabled: "#959595",
+  red: [
+    "#fff0f3",
+    "#ffb2c4",
+    "#ff9fb6",
+    "#ff8ba7",
+    "#ff7898",
+    "#ff6589",
+    "#ff517b",
+    "#ff3e6c",
+    "#e63861",
+    "#cc3256",
+  ],
 
-  primary: "#730CB6",
-  primaryDark: "#3c267d",
-  primaryLight: "#a53aeb",
-  primaryDarker: "#501c82",
+  water: [
+    "#ebfbfb",
+    "#9de9ed",
+    "#85e3e9",
+    "#6cdde5",
+    "#54d8e0",
+    "#3bd2dc",
+    "#23cdd7",
+    "#0ac7d3",
+    "#09b3be",
+    "#089fa9",
+  ],
 
-  secondary: "#ff675b",
-  secondaryDark: "#e86156",
-  secondaryLight: "#f98d82",
+  purple: [
+    "#f4ecf9",
+    "#c79ee2",
+    "#b986db",
+    "#ab6dd3",
+    "#9d55cc",
+    "#8f3dc5",
+    "#8124bd",
+    "#730cb6",
+    "#680ba4",
+    "#5c0a92",
+  ],
 
-  warning: "#EDB72D",
-  warningDark: "#c1921b",
-  warningLight: "##ffca41",
+  blue: [
+    "#f1f5fb",
+    "#b7cfec",
+    "#a5c4e8",
+    "#92b8e3",
+    "#80acde",
+    "#6ea0d9",
+    "#5c94d5",
+    "#4a88d0",
+    "#437abb",
+    "#3b6da6",
+  ],
 
-  error: "#FF3E6C",
-  errorDark: "#C81741",
-  errorLight: "#ff517a",
+  green: [
+    "#ebfaf5",
+    "#99e7cb",
+    "#80e1be",
+    "#66dab0",
+    "#4dd4a3",
+    "#33ce96",
+    "#1ac889",
+    "#00c27c",
+    "#00af70",
+    "#009b63",
+  ],
 
-  info: "#4A88D0",
-  infoDark: "#326cb0",
-  infoLight: "#5ca7ff",
+  yellow: [
+    "#fef9ee",
+    "#f8e2ab",
+    "#f6db96",
+    "#f4d481",
+    "#f2cd6c",
+    "#f1c557",
+    "#efbe42",
+    "#edb72d",
+    "#d5a529",
+    "#be9224",
+  ],
 
-  success: "#00C27C",
-  successDark: "#00C27C",
-  successLight: "#00C27C",
+  brown: [
+    "#fcf5f1",
+    "#f1ccb7",
+    "#eec0a6",
+    "#ebb394",
+    "#e7a682",
+    "#e49970",
+    "#e08d5e",
+    "#dd804c",
+    "#c77344",
+    "#b1663d",
+  ],
 
-  water: "#0AC7D3",
-  waterDark: "#0AC7D3",
-  waterLight: "#0AC7D3",
-
-  brown: "#DD804C",
-  brownDark: "#DD804C",
-  brownLight: "#DD804C",
-
-  purple: "#730CB6",
-  purpleDark: "#730CB6",
-  purpleLight: "#730CB6",
-
-  textPrimary: "#000000",
-  textSecondary: "#808080",
-  textDisabled: "#959595",
-
-  backgroundDefault: "#f8f8f8",
-
-  grey50: "#fafafa",
-  grey100: "#f5f5f5",
-  grey200: "#eeeeee",
-  grey300: "#e0e0e0",
-  grey400: "#bdbdbd",
-  grey500: "#9e9e9e",
-  grey600: "#757575",
-  grey700: "#949494",
-  grey800: "#616161",
-  grey900: "#212121",
-
-  opacity: {
-    level0: 0.05,
-    level1: 0.1,
-    level2: 0.15,
-    level3: 0.2,
-    level4: 0.4,
-  },
-};
-
-export const BaseColors: TColors = {
-  primary: {
-    main: ref.primary,
-    light: ref.primaryLight,
-    dark: ref.primaryDark,
-    contrastText: ref.white,
-    container: color(ref.primary).alpha(ref.opacity.level2).rgb().toString(),
-    onContainer: ref.primary,
-  },
-
-  secondary: {
-    main: ref.secondary,
-    light: ref.secondaryLight,
-    dark: ref.secondaryDark,
-    contrastText: ref.white,
-    container: color(ref.secondary).alpha(ref.opacity.level2).rgb().toString(),
-    onContainer: ref.secondary,
-  },
-
-  error: {
-    main: ref.error,
-    light: ref.errorLight,
-    dark: ref.errorDark,
-    contrastText: ref.white,
-    container: color(ref.error).alpha(ref.opacity.level2).rgb().toString(),
-    onContainer: ref.error,
-  },
-
-  warning: {
-    main: ref.warning,
-    light: ref.warningLight,
-    dark: ref.warningDark,
-    contrastText: ref.white,
-    container: color(ref.warning).alpha(ref.opacity.level2).rgb().toString(),
-    onContainer: ref.warning,
-  },
-
-  info: {
-    main: ref.info,
-    light: ref.infoLight,
-    dark: ref.infoDark,
-    contrastText: ref.white,
-    container: color(ref.info).alpha(ref.opacity.level2).rgb().toString(),
-    onContainer: ref.info,
-  },
-
-  success: {
-    main: ref.success,
-    light: ref.successLight,
-    dark: ref.successDark,
-    contrastText: ref.white,
-    container: color(ref.success).alpha(ref.opacity.level2).rgb().toString(),
-    onContainer: ref.success,
-  },
-
-  water: {
-    main: ref.water,
-    light: ref.waterLight,
-    dark: ref.waterDark,
-    contrastText: ref.white,
-    container: color(ref.water).alpha(ref.opacity.level2).rgb().toString(),
-    onContainer: ref.water,
-  },
-
-  purple: {
-    main: ref.purple,
-    light: ref.purpleLight,
-    dark: ref.purpleDark,
-    contrastText: ref.white,
-    container: color(ref.purple).alpha(ref.opacity.level2).rgb().toString(),
-    onContainer: ref.purple,
-  },
-
-  brown: {
-    main: ref.brown,
-    light: ref.brownLight,
-    dark: ref.brownDark,
-    contrastText: ref.white,
-    container: color(ref.brown).alpha(ref.opacity.level2).rgb().toString(),
-    onContainer: ref.brown,
-  },
-};
+  orange: [
+    "#fff3f2",
+    "#ffc2bd",
+    "#ffb3ad",
+    "#ffa49d",
+    "#ff958c",
+    "#ff857c",
+    "#ff766b",
+    "#ff675b",
+    "#e65d52",
+    "#cc5249",
+  ],
+} as Record<TColor, Tuple<string, 10>>;
 
 export const DefaultColorPalette: TColorPaletteTheme = {
-  common: {
-    black: ref.black,
-    white: ref.white,
+  colors: DEFAULT_COLORS,
+
+  primaryColor: "purple",
+
+  primaryShade: {
+    light: 7,
+    dark: 9,
   },
 
-  ...BaseColors,
-
-  grey: {
-    50: ref.grey50,
-    100: ref.grey100,
-    200: ref.grey200,
-    300: ref.grey300,
-    400: ref.grey400,
-    500: ref.grey500,
-    600: ref.grey600,
-    700: ref.grey700,
-    800: ref.grey800,
-    900: ref.grey900,
+  textColor: {
+    primary: DEFAULT_COLORS.dark[7],
+    secondary: DEFAULT_COLORS.gray[7],
+    disabled: DEFAULT_COLORS.gray[4],
   },
 
   background: {
-    default: ref.backgroundDefault,
-  },
-
-  disabled: {
-    background: ref.grey200,
-    border: ref.grey300,
-    color: ref.grey500
+    default: DEFAULT_COLORS.gray[0],
+    disabled: DEFAULT_COLORS.gray[2],
   },
 
   border: {
-    default: ref.borderDefault,
-  },
-
-  action: {
-    hover: (value: string) => color(value).alpha(0.8).rgb().toString(),
-    press: (value: string) => color(value).alpha(0.9).rgb().toString(),
-  },
-
-  text: {
-    primary: ref.textPrimary,
-    secondary: ref.textSecondary,
-    disabled: ref.textDisabled,
+    default: DEFAULT_COLORS.gray[5],
+    disabled: DEFAULT_COLORS.gray[3],
   },
 };

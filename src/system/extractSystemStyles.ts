@@ -111,7 +111,6 @@ export function extractTextSystemStyles<T extends Record<string, any>>(
 
   const {
     color,
-
     ff,
     fz,
     fw,
@@ -120,12 +119,14 @@ export function extractTextSystemStyles<T extends Record<string, any>>(
     lh,
     fs,
     tt,
+    tdc,
+    tdl,
+    tds,
     ...rest
   } = others;
 
   const systemStyles = filterProps({
     color,
-
     ff,
     fz,
     fw,
@@ -134,6 +135,9 @@ export function extractTextSystemStyles<T extends Record<string, any>>(
     lh,
     fs,
     tt,
+    tdc,
+    tdl,
+    tds,
   });
 
   return {

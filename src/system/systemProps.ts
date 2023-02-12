@@ -1,4 +1,7 @@
-import { TStyleSystemProp, TTypographyStyleSystemProp } from "../types/StyleSystem";
+import {
+  TStyleSystemProp,
+  TTypographyStyleSystemProp,
+} from "../types/StyleSystem";
 import { SystemValueType } from "./getter";
 
 export interface SystemPropData {
@@ -53,7 +56,10 @@ export const BASE_SYSTEM_PROPS: Record<TStyleSystemProp, SystemPropData> = {
   display: { type: "default", property: "display" },
 };
 
-export const TYPOGRAPHY_SYSTEM_PROPS: Record<TTypographyStyleSystemProp, SystemPropData> = {
+export const TYPOGRAPHY_SYSTEM_PROPS: Record<
+  TTypographyStyleSystemProp,
+  SystemPropData
+> = {
   ...BASE_SYSTEM_PROPS,
   color: { type: "color", property: "color" },
   ff: { type: "default", property: "fontFamily" },
@@ -64,4 +70,7 @@ export const TYPOGRAPHY_SYSTEM_PROPS: Record<TTypographyStyleSystemProp, SystemP
   lh: { type: "default", property: "lineHeight" },
   fs: { type: "default", property: "fontStyle" },
   tt: { type: "default", property: "textTransform" },
+  tdl: { type: "default", property: "textDecorationLine" },
+  tdc: { type: "color", property: "textDecorationColor" },
+  tds: { type: "default", property: "textDecorationStyle" },
 };

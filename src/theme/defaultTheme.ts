@@ -45,6 +45,9 @@ const _DEFAULT_THEME: TThemeBase = {
 
   typography: DefaultTypographyTheme,
 
+  white: '#fff',
+  black: '#000',
+  colorScheme: "light",
   palette: DefaultColorPalette,
 
   components: {}
