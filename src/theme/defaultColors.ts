@@ -30,8 +30,8 @@ export const DEFAULT_COLORS = {
 
   red: [
     "#fff0f3",
+    "#ffc5d3",
     "#ffb2c4",
-    "#ff9fb6",
     "#ff8ba7",
     "#ff7898",
     "#ff6589",
@@ -43,8 +43,8 @@ export const DEFAULT_COLORS = {
 
   water: [
     "#ebfbfb",
+    "#b6eef2",
     "#9de9ed",
-    "#85e3e9",
     "#6cdde5",
     "#54d8e0",
     "#3bd2dc",
@@ -56,8 +56,8 @@ export const DEFAULT_COLORS = {
 
   purple: [
     "#f4ecf9",
+    "#d5b6e9",
     "#c79ee2",
-    "#b986db",
     "#ab6dd3",
     "#9d55cc",
     "#8f3dc5",
@@ -69,8 +69,8 @@ export const DEFAULT_COLORS = {
 
   blue: [
     "#f1f5fb",
+    "#c9dbf1",
     "#b7cfec",
-    "#a5c4e8",
     "#92b8e3",
     "#80acde",
     "#6ea0d9",
@@ -82,8 +82,8 @@ export const DEFAULT_COLORS = {
 
   green: [
     "#ebfaf5",
+    "#b3edd8",
     "#99e7cb",
-    "#80e1be",
     "#66dab0",
     "#4dd4a3",
     "#33ce96",
@@ -95,8 +95,8 @@ export const DEFAULT_COLORS = {
 
   yellow: [
     "#fef9ee",
+    "#fae9c0",
     "#f8e2ab",
-    "#f6db96",
     "#f4d481",
     "#f2cd6c",
     "#f1c557",
@@ -108,8 +108,8 @@ export const DEFAULT_COLORS = {
 
   brown: [
     "#fcf5f1",
+    "#f5d9c9",
     "#f1ccb7",
-    "#eec0a6",
     "#ebb394",
     "#e7a682",
     "#e49970",
@@ -121,8 +121,8 @@ export const DEFAULT_COLORS = {
 
   orange: [
     "#fff3f2",
+    "#ffd1ce",
     "#ffc2bd",
-    "#ffb3ad",
     "#ffa49d",
     "#ff958c",
     "#ff857c",
@@ -145,7 +145,7 @@ export const DefaultColorPalette: TColorPaletteTheme = {
 
   textColor: {
     primary: DEFAULT_COLORS.dark[7],
-    secondary: DEFAULT_COLORS.gray[7],
+    secondary: DEFAULT_COLORS.gray[6],
     disabled: DEFAULT_COLORS.gray[4],
   },
 
@@ -155,7 +155,7 @@ export const DefaultColorPalette: TColorPaletteTheme = {
   },
 
   border: {
-    default: DEFAULT_COLORS.gray[5],
-    disabled: DEFAULT_COLORS.gray[3],
+    default: DEFAULT_COLORS.gray[2],
+    disabled: DEFAULT_COLORS.gray[1],
   },
 };
