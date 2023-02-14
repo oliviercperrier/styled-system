@@ -67,12 +67,12 @@ export function variant(theme: TThemeBase) {
         return {
           border: "transparent",
           background: rgba(
-            getThemeColor(
-              currentColor,
-              theme.colorScheme === "dark" ? 8 : 0,
+            getThemeColor({
+              color: currentColor,
+              shade: theme.colorScheme === "dark" ? 8 : 0,
               primaryFallback,
-              false
-            ),
+              useSplittedShade: false,
+            }),
             theme.colorScheme === "dark" ? 0.2 : 1
           ),
           color:
@@ -80,10 +80,11 @@ export function variant(theme: TThemeBase) {
               ? theme.colorScheme === "dark"
                 ? theme.palette.colors.dark[0]
                 : theme.palette.colors.dark[9]
-              : getThemeColor(
-                  currentColor,
-                  theme.colorScheme === "dark" ? 2 : getPrimaryShade("light")
-                ),
+              : getThemeColor({
+                  color: currentColor,
+                  shade:
+                    theme.colorScheme === "dark" ? 2 : getPrimaryShade("light"),
+                }),
         };
       }
 
@@ -96,24 +97,25 @@ export function variant(theme: TThemeBase) {
               ? theme.colorScheme === "dark"
                 ? theme.palette.colors.dark[0]
                 : theme.palette.colors.dark[9]
-              : getThemeColor(
-                  currentColor,
-                  theme.colorScheme === "dark" ? 2 : getPrimaryShade("light")
-                ),
+              : getThemeColor({
+                  color: currentColor,
+                  shade:
+                    theme.colorScheme === "dark" ? 2 : getPrimaryShade("light"),
+                }),
         };
       }
 
       case "outline": {
         return {
-          border: getThemeColor(
-            currentColor,
-            theme.colorScheme === "dark" ? 5 : getPrimaryShade("light")
-          ),
+          border: getThemeColor({
+            color: currentColor,
+            shade: theme.colorScheme === "dark" ? 5 : getPrimaryShade("light"),
+          }),
           background: "transparent",
-          color: getThemeColor(
-            currentColor,
-            theme.colorScheme === "dark" ? 5 : getPrimaryShade("light")
-          ),
+          color: getThemeColor({
+            color: currentColor,
+            shade: theme.colorScheme === "dark" ? 5 : getPrimaryShade("light"),
+          }),
         };
       }
 
@@ -135,7 +137,10 @@ export function variant(theme: TThemeBase) {
         return {
           border: "transparent",
           background: theme.white,
-          color: getThemeColor(currentColor, getPrimaryShade()),
+          color: getThemeColor({
+            color: currentColor,
+            shade: getPrimaryShade(),
+          }),
         };
       }
 
@@ -147,10 +152,11 @@ export function variant(theme: TThemeBase) {
               ? theme.colorScheme === "dark"
                 ? theme.palette.colors.dark[0]
                 : theme.palette.colors.dark[9]
-              : getThemeColor(
-                  currentColor,
-                  theme.colorScheme === "dark" ? 2 : getPrimaryShade("light")
-                ),
+              : getThemeColor({
+                  color: currentColor,
+                  shade:
+                    theme.colorScheme === "dark" ? 2 : getPrimaryShade("light"),
+                }),
           background: "transparent",
         };
       }
@@ -165,7 +171,11 @@ export function variant(theme: TThemeBase) {
 
         return {
           border: "transparent",
-          background: getThemeColor(_color, _shade, primaryFallback),
+          background: getThemeColor({
+            color: _color,
+            shade: _shade,
+            primaryFallback,
+          }),
           color: theme.white,
         };
       }

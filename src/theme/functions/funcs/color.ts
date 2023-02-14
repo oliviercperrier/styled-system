@@ -4,12 +4,17 @@ import { primaryShade } from "./primaryShade";
 export function color(theme: TThemeBase) {
   const getPrimaryShade = primaryShade(theme);
 
-  return (
-    color: string,
-    shade?: number,
-    primaryFallback: boolean = true,
-    useSplittedShade: boolean = true
-  ) => {
+  return ({
+    color,
+    shade,
+    primaryFallback = true,
+    useSplittedShade = true,
+  }: {
+    color: string;
+    shade?: number;
+    primaryFallback?: boolean;
+    useSplittedShade?: boolean;
+  }) => {
     if (typeof color === "string" && color.includes(".")) {
       const [splitterColor, _splittedShade] = color.split(".");
       const splittedShade = parseInt(_splittedShade, 10);

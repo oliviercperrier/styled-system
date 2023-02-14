@@ -11,12 +11,12 @@ export interface TThemeFunctions {
   lighten(color: string, alpha: number): string;
   darken(color: string, alpha: number): string;
   radius(size?: TNumberSize): number;
-  color(
-    color: string,
-    shade?: number,
-    primaryFallback?: boolean,
-    useSplittedShade?: boolean
-  ): string;
+  color(params: {
+    color: string;
+    shade?: number;
+    primaryFallback?: boolean;
+    useSplittedShade?: boolean;
+  }): string;
   alpha(color: string, alpha: number): string;
   variant(payload: VariantInput): VariantOutput;
   isColor(scheme: "dark" | "light", color: TColor): boolean;
