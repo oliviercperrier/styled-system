@@ -151,11 +151,11 @@ export const DefaultColorPalette: TColorPaletteTheme = {
 
   background: {
     default: DEFAULT_COLORS.gray[0],
-    disabled: DEFAULT_COLORS.gray[2],
+    disabled: DEFAULT_COLORS.gray[1],
   },
 
   border: {
     default: DEFAULT_COLORS.gray[2],
-    disabled: DEFAULT_COLORS.gray[1],
+    disabled: DEFAULT_COLORS.gray[2],
   },
 };
